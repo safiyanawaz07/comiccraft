@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}How it works — ComicCraft{% endblock %}
+
+{% block content %}
+<header class="hero">
+  <h1>How It Works</h1>
+  <p>From a one-line idea to a finished comic in five steps.</p>
+</header>
+
+<main>
+  <div class="card">
+    <ol class="steps">
+      <li><strong>Plan the story</strong>
+        Google Gemini turns your idea into a comic title, a description of the main character,
+        and a panel-by-panel outline.</li>
+      <li><strong>Write the script</strong>
+        A second Gemini call writes the narration captions and speech-bubble dialogue for every panel.</li>
+      <li><strong>Draw the art</strong>
+        FLUX.1 draws each panel, running on a free Hugging Face Space. Panels are drawn in parallel to save time.
+        If a service is busy or out of free quota, the next one takes over: Stable Diffusion 3 on Hugging Face, then Pollinations.ai, then AI Horde. The character description is repeated in every prompt so they look the same throughout.</li>
+      <li><strong>Lay out the comic</strong>
+        The images and text are combined into panels for the web preview.</li>
+      <li><strong>Export to PDF</strong>
+        fpdf2 builds a printable PDF with a cover page and one page per panel.</li>
+    </ol>
+  </div>
+
+  <div class="card" style="margin-top: 28px;">
+    <h2 style="margin-top: 0;">Tech stack</h2>
+    <ul style="line-height: 1.8; margin: 0;">
+      <li><strong>Backend:</strong> Python, FastAPI, Uvicorn</li>
+      <li><strong>AI text:</strong> Google Gemini (google-genai SDK)</li>
+      <li><strong>AI images:</strong> FLUX.1-schnell, Stable Diffusion 3, Pollinations.ai and AI Horde, with automatic fallback</li>
+      <li><strong>PDF:</strong> fpdf2 + Pillow</li>
+      <li><strong>Frontend:</strong> Jinja2 templates, HTML and CSS</li>
+    </ul>
+  </div>
+</main>
+{% endblock %}
