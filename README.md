@@ -5,6 +5,11 @@ Turn a one-line story idea into a finished, illustrated comic, then download it 
 ComicCraft uses **Google Gemini** to plan the story and write the dialogue, and **Stable Diffusion**
 (plus other free image AIs) to draw every panel.
 
+TEAM MEMBERS:
+1.Sai varshini(team ledear)
+2.Sai Medha
+3.Safiya Nawaz
+4.Roshini
 ## Features
 
 - Story, characters and dialogue written by Google Gemini
